@@ -1,5 +1,4 @@
 "use client";
-import "../styles/globals.css";
 export default function DeleteConfirmModal({ open, onClose, onConfirm }) {
   if (!open) return null;
 

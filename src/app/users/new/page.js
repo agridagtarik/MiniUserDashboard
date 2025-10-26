@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../../store/userSlice";
 import { useRouter } from "next/navigation";
-import "../../../styles/globals.css";
 
 export default function NewUserPage() {
   const dispatch = useDispatch();

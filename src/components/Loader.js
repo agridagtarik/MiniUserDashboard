@@ -1,4 +1,3 @@
-import "../styles/globals.css";
 export default function Loader() {
   return (
     <div className="loader-fullscreen">

@@ -7,7 +7,6 @@ import { setUsers } from "@/store/userSlice";
 import UserList from "../components/UserList";
 import SearchBar from "../components/SearchBar";
 import Header from "../components/Header";
-import "../styles/globals.css";
 
 export default function HomePage() {
   const dispatch = useDispatch();

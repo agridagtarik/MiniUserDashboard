@@ -5,7 +5,6 @@ import { useParams, useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import Loader from "@/components/Loader";
 import Error from "@/components/Error";
-import "../../../styles/globals.css";
 
 export default function UserDetailPage() {
   const params = useParams();

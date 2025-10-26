@@ -1,4 +1,3 @@
-import "../styles/globals.css";
 export default function SearchBar({ search, setSearch }) {
   return (
     <input
