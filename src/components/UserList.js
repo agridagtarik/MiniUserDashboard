@@ -1,3 +1,5 @@
+"use client";
+
 import UserCard from "./UserCard";
 import Loader from "./Loader";
 import Error from "./Error";
@@ -8,7 +10,7 @@ export default function UserList({ users, isLoading, isError }) {
 
   return (
     <div className="user-list">
-      {users?.map((user) => (
+      {users.map((user) => (
         <UserCard key={user.id} user={user} />
       ))}
     </div>

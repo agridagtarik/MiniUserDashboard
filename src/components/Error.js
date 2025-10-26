@@ -1,3 +1,5 @@
+"use client";
+
 export default function Error({ message = "Bir hata oluştu!" }) {
   return (
     <div className="full-error-container">

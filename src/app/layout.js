@@ -2,17 +2,14 @@
 
 import { Provider } from "react-redux";
 import { store } from "../store";
-import { useEffect } from "react";
 import Head from "next/head";
 import "../styles/globals.css";
 
 export default function RootLayout({ children }) {
-  useEffect(() => {
-    document.title = "MiniUserDashboard";
-  }, []);
   return (
     <>
       <Head>
+        <title>MiniUserDashboard</title>
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <html lang="en">

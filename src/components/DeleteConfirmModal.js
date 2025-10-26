@@ -1,4 +1,5 @@
 "use client";
+
 export default function DeleteConfirmModal({ open, onClose, onConfirm }) {
   if (!open) return null;
 
@@ -10,7 +11,6 @@ export default function DeleteConfirmModal({ open, onClose, onConfirm }) {
         <p className="modal-text">
           Bu kullanıcıyı silmek istediğinden emin misiniz?
         </p>
-
         <div className="modal-buttons">
           <button className="modal-btn cancel" onClick={onClose}>
             Vazgeç

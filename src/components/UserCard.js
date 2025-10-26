@@ -4,15 +4,15 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../store/userSlice";
 import { useState } from "react";
-import DeleteConfirmModal from "./DeleteConfirmModal";
+import DeleteConfirmModal from "../components/DeleteConfirmModal";
 
 export default function UserCard({ user }) {
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleDelete = () => {
     dispatch(deleteUser(user.id));
-    setOpen(false);
+    setModalOpen(false);
   };
 
   return (
@@ -36,14 +36,14 @@ export default function UserCard({ user }) {
           <Link href={`/users/${user.id}`}>
             <button className="btn detail">Detay</button>
           </Link>
-          <button className="btn delete" onClick={() => setOpen(true)}>
+          <button className="btn delete" onClick={() => setModalOpen(true)}>
             Sil
           </button>
         </div>
       </div>
       <DeleteConfirmModal
-        open={open}
-        onClose={() => setOpen(false)}
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
         onConfirm={handleDelete}
       />
     </>
