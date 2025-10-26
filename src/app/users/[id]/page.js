@@ -40,7 +40,13 @@ export default function UserDetailPage() {
       });
     }
   }, [userData]);
-
+  useEffect(() => {
+    if (selectedUser) {
+      document.title = `MiniUserDashboard|${selectedUser[0]?.name}`;
+    } else {
+      document.title = "MiniUserDashboard|Kullanıcı bulunamadı";
+    }
+  }, [selectedUser]);
   if (isLoading || !form) return <Loader />;
   if (isError || !selectedUser?.length === 0)
     return <Error message="Kullanıcı bulunamadı!" />;
@@ -66,9 +72,8 @@ export default function UserDetailPage() {
         ))}
         <button
           type="button"
-          className="user-detail-save-back"
+          className="user-detail-save-back-filled"
           onClick={() => router.push("/")}
-          style={{ background: "#4c6ef5", color: "#fff" }}
         >
           Geri
         </button>

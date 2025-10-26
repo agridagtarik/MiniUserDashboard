@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../../store/userSlice";
 import { useRouter } from "next/navigation";
@@ -15,7 +15,9 @@ export default function NewUserPage() {
     phone: "",
     company: "",
   });
-
+  useEffect(() => {
+    document.title = "MiniUserDashboard|Yeni Kullanıcı";
+  }, []);
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 

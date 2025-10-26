@@ -16,7 +16,9 @@ export default function HomePage() {
   const [displayedUsers, setDisplayedUsers] = useState([]);
   const [itemsPerLoad, setItemsPerLoad] = useState(6);
   const userList = useSelector((state) => state.users.list);
-
+  useEffect(() => {
+    document.title = "MiniUserDashboard";
+  }, []);
   useEffect(() => {
     if (userList.length === 0 && users.length > 0) {
       dispatch(setUsers(users));
