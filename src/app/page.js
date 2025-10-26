@@ -68,6 +68,12 @@ export default function HomePage() {
           isLoading={isLoading}
           isError={isError}
         />
+        {!isLoading && !isError && filteredUsers.length === 0 && (
+          <div className="no-results-message">
+            <span className="icon">😕</span>
+            <p>Kullanıcı Bulunamadı</p>
+          </div>
+        )}
       </main>
     </div>
   );

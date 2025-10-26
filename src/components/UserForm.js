@@ -24,7 +24,9 @@ export default function UserForm({
             placeholder={fieldsNames[field]}
             value={formData[field]}
             onChange={onChange}
-            type={field === "email" ? "email" : "text"}
+            type={
+              field === "email" ? "email" : field === "phone" ? "tel" : "text"
+            }
             disabled={isReadOnly}
             className={`user-detail-input ${
               errors[field] ? "input-error" : ""

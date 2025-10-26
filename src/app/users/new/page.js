@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../../../store/userSlice";
 import { useRouter } from "next/navigation";
 import UserForm from "../../../components/UserForm";
+import { toast } from "react-toastify";
 
 export default function NewUserPage() {
   const dispatch = useDispatch();
@@ -27,6 +28,23 @@ export default function NewUserPage() {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
+    if (e.target.name === "email") {
+      setErrors((prev) => ({
+        ...prev,
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)
+          ? ""
+          : "Geçerli bir mail girin.",
+      }));
+    }
+
+    if (e.target.name === "phone") {
+      setErrors((prev) => ({
+        ...prev,
+        phone: /^[0-9+\-() ]{6,20}$/.test(e.target.value)
+          ? ""
+          : "Geçerli bir telefon girin.",
+      }));
+    }
   };
 
   const validateForm = () => {
@@ -51,10 +69,16 @@ export default function NewUserPage() {
       return;
     }
 
-    dispatch(
-      addUser({ ...form, id: Date.now(), company: { name: form.company } })
-    );
-    router.push("/");
+    try {
+      dispatch(
+        addUser({ ...form, id: Date.now(), company: { name: form.company } })
+      );
+
+      toast.success("Kullanıcı başarıyla eklendi!");
+      setTimeout(() => router.push("/"), 1500);
+    } catch (error) {
+      toast.error("Kullanıcı eklenirken bir hata oluştu.");
+    }
   };
 
   return (
