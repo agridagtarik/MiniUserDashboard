@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { useGetUserQuery } from "../../../store/api";
@@ -27,7 +27,11 @@ export default function UserDetailPage() {
   });
 
   const userData = selectedUser || user;
-
+  useEffect(() => {
+    document.title = `Mini User Dashboard | ${
+      userData ? userData?.name : "Kullanıcı Bulunamadı"
+    }`;
+  }, [userData]);
   const formData = useMemo(() => {
     if (!userData) return null;
     return {
@@ -39,7 +43,7 @@ export default function UserDetailPage() {
     };
   }, [userData]);
 
-  if (isLoading || !formData) return <Loader />;
+  if (isLoading) return <Loader />;
   if (isError || !userData) return <Error message="Kullanıcı bulunamadı!" />;
 
   return (

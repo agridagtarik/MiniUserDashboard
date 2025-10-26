@@ -23,13 +23,13 @@ export default function UserCard({ user }) {
         <p className="username">@{user.username}</p>
         <div className="info">
           <p>
-            <strong>Email:</strong> {user.email}
+            <strong>Mail:</strong> {user.email}
           </p>
           <p>
-            <strong>Phone:</strong> {user.phone}
+            <strong>Telefon:</strong> {user.phone}
           </p>
           <p>
-            <strong>Company:</strong> {user.company?.name}
+            <strong>Şirket:</strong> {user.company?.name}
           </p>
         </div>
         <div className="buttons">

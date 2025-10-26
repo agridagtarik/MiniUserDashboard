@@ -6,7 +6,6 @@ import { useGetUsersQuery } from "../store/api";
 import { setUsers } from "../store/userSlice";
 import UserList from "../components/UserList";
 import SearchBar from "../components/SearchBar";
-import Header from "../components/Header";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 import { useResponsiveItems } from "../hooks/useResponsiveItems";
 import { CARD_HEIGHT, CARD_WIDTH } from "../constants/index";
@@ -30,7 +29,7 @@ export default function HomePage() {
   );
 
   useEffect(() => {
-    document.title = "MiniUserDashboard";
+    document.title = "Mini User Dashboard";
   }, []);
 
   useEffect(() => {
@@ -62,7 +61,6 @@ export default function HomePage() {
 
   return (
     <div className="home-container">
-      <Header />
       <main className="content">
         <SearchBar search={search} setSearch={setSearch} />
         <UserList
